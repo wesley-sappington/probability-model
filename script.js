@@ -156,21 +156,21 @@ var gameObjects = { //Stores the classes used to create objects in the game
     this.addFish = function(fish) {
 
       //The bounds of the tank
-      var minPosX = this.xpos + fish.width;
-      var maxPosX = (this.xpos + this.width) - fish.width;
-      var minPosY = this.ypos + this.waterLevel + fish.height;
-      var maxPosY = (this.ypos + this.height) - fish.height;
+      var min_xpos = this.xpos + fish.width;
+      var max_xpos = (this.xpos + this.width) - fish.width;
+      var min_ypos = this.ypos + this.waterLevel + fish.height;
+      var max_ypos = (this.ypos + this.height) - fish.height;
 
       //Position the fish at a random point inside the tank
       if(fish.xpos === undefined || fish.ypos === undefined) {
-        fish.xpos = rand(minPosX, maxPosX);
-        fish.ypos = rand(minPosY, maxPosY);
+        fish.xpos = rand(min_xpos, max_xpos);
+        fish.ypos = rand(min_ypos, max_ypos);
       }
       else {
-        if(fish.xpos < minPosX) fish.xpos = minPosX;
-        if(fish.xpos > maxPosX) fish.xpos = maxPosX;
-        if(fish.ypos < minPosY) fish.ypos = minPosY;
-        if(fish.ypos > maxPosY) fish.ypos = maxPosY;
+        if(fish.xpos < min_xpos) fish.xpos = min_xpos;
+        if(fish.xpos > max_xpos) fish.xpos = max_xpos;
+        if(fish.ypos < min_ypos) fish.ypos = min_ypos;
+        if(fish.ypos > max_ypos) fish.ypos = max_ypos;
       }
 
       //Calculate which direction the fish should be facing. True is right, false is left.
